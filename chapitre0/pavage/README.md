@@ -10,4 +10,4 @@ _La compilation requiert le package TikZ pour LaTeX._
 
 # Version web
 
-L'algorithme peut être testé sur [cette page](http://info.usherbrooke.ca/mblondin/cours/ift436_a21/rotation/) ou en lançant 'pavage.html' localement.
+L'algorithme peut être testé sur [cette page](http://info.usherbrooke.ca/mblondin/cours/ift436_a21/rotation/) ou en lançant `pavage.html` localement.
