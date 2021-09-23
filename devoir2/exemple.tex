@@ -1,0 +1,203 @@
+\documentclass{article}
+
+%% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage[noline, onelanguage, french, noend]{algorithm2e}
+\usepackage{tikz}
+\usepackage{booktabs}
+
+%% Macros
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\O}{\mathcal{O}}
+\newcommand{\algdelim}{\texttt{:}}
+\newcommand{\algskip}{\vspace*{3pt}}
+\newcommand{\emptyseq}{[\,]}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\trans}[1]{\xrightarrow{#1}}
+
+%% Titre
+\title{IFT436: devoir 2}
+\author{Foo McBar}
+\date{5 octobre 2021}
+
+\begin{document}
+\maketitle
+
+%% Contenu
+\section*{Question 1}
+
+\begin{enumerate}[(a)]
+
+\item ...
+
+  \begin{center}
+    \begin{tabular}{ll}
+      \toprule
+      \textbf{Itération} & \textbf{Contenu} \\
+
+      \midrule
+      0 & [66, 99, 100, 88, 77, 200] \\
+
+      \midrule
+      1 & ... \\
+
+      \midrule
+      2 & ... \\
+
+      \bottomrule
+    \end{tabular}
+  \end{center}
+
+\item ...
+
+\item ...
+
+\item Trivial
+
+\item $42n^3 - 5 \in \O(n^3)$
+
+\item $n^2 + n \in \Omega(n^2)$
+
+\item ...
+
+\end{enumerate}
+
+\section*{Question 2}
+
+\begin{enumerate}[(a)]
+
+\item Algorithme de tri rapide:
+
+  \begin{algorithm}[H]
+    \DontPrintSemicolon
+    \SetKwFunction{trier}{trier}
+    \SetKwFunction{trierp}{trier'}
+    \SetKwFunction{partition}{partition}
+    \SetKwProg{myproc}{}{}{}
+    
+    \KwIn{séquence $s$ d'éléments comparables}
+    \Sortie{séquence $s$ triée}
+    \algskip
+    
+    \myproc{\trier{$s$}\algdelim}{
+      \myproc(\tcp*[f]{partionne $s$ autour de $x = s[hi]$ et}){%
+        \partition{$lo, hi$}\algdelim}{%
+
+        $x \leftarrow s[hi];\ i \leftarrow lo$
+        \tcp*{retourne le nouvel index $i$ de $x$}
+        \algskip
+        
+        \For{$j \leftarrow lo, \ldots, hi$}{
+          \If{$s[j] < x$}{
+            $s[i] \leftrightarrow s[j]$\;
+            $i \leftarrow i + 1$\;
+          }
+        }
+        
+        \algskip
+        $s[i] \leftrightarrow s[hi]$\;
+        
+        \algskip
+        \Return{$i$}
+      }
+      \algskip
+      \algskip
+      \algskip
+      
+      \myproc{\trierp{$lo, hi$}\algdelim}{
+        \If{$lo < hi$}{
+          $pivot \leftarrow \partition{$lo, hi$}$\;
+          \trierp{$lo, pivot - 1$}\tcp*{Trier le côté gauche}
+          \trierp{$pivot + 1, hi$}\tcp*{Trier le côté droit}
+        }
+      }
+      \algskip
+      \algskip
+      \algskip
+      
+      \trierp{$1, |s|$}
+      \algskip
+      
+      \Return{$s$}
+    }
+  \end{algorithm}  
+  
+\item Mon arbre:
+
+  \begin{center}
+    \begin{tikzpicture}[sibling distance=100pt]      
+      \node {[1, 2, 3, 4, 5]}
+      child { node {a} }
+      child { node {b}
+        child { node {c}
+          child { node {d} }
+          child { node {e} }
+          child { node {f} } }
+        child { node {g} } };
+    \end{tikzpicture}
+  \end{center}
+    
+  Sinon, utiliser par ex.\ \verb|\includegraphics| pour importer une
+  image.
+\end{enumerate}
+
+\section*{Question 3}
+
+\begin{enumerate}[(a)]
+
+\item ...
+
+\item \leavevmode
+
+  \begin{enumerate}[(i)]
+
+  \item Mon algorithme est simplement un parcours en profondeur:
+
+    \begin{algorithm}[H]
+      \DontPrintSemicolon
+      \LinesNumbered
+      
+      \SetKwFunction{dfs}{parcours}
+      \SetKwProg{myproc}{}{}{}
+      
+      \KwIn{graphe $\G = (V, E)$ et sommet $u \in V$}
+      \KwResult{une séquence $s = [v \in V : u \trans{*} v]$}
+      \algskip
+
+      $s \leftarrow \emptyseq$\;
+      \algskip
+
+      \myproc{\dfs{$x$}\algdelim}{
+        \If{$x$ n'est pas marqué}{
+          \textbf{marquer}\ $x$\;
+
+          \algskip
+          \For(\tcp*[f]{explorer voisins/succ.}){$y \in V : x \trans{} y$}{
+            \dfs{$y$}\;
+          }
+
+          \algskip
+          \textbf{ajouter}\ $x$ \textbf{à}\ $s$
+          \tcp*[f]{ajouter après l'exporation}
+        }
+      }
+
+      \algskip
+      \dfs{$u$}\;
+      
+      \algskip
+      \Return{$s$}\;
+    \end{algorithm}
+    
+  \item Oui/non car $i \trans{*} j$...
+
+  \end{enumerate}
+
+\item ...
+
+\end{enumerate}
+
+\end{document}
