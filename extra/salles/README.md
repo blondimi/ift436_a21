@@ -1,15 +1,16 @@
 # Assignation de salles
 
-Ce billet ***en construction*** discute de différentes solutions au problème qui consiste à déterminer
-le nombre de salles minimum qui satisfait un horaire de cours.
+Ce billet discute de différentes approches afin de résoudre le problème qui consiste à déterminer
+le nombre de salles minimal qui satisfait un horaire de cours. Une implémentation en Python de chaque procédure qui sera
+décrite se trouve dans [```implementations.py```](implementations.py).
 
 ## Un algorithme inefficace qui fonctionne
 
-Une toute première approche consiste à (1) identifier tous les moments
-de l'horaire; (2) balayer la plage des moments; (3) vérifier à chaque
+Une toute première approche consiste à: (a) identifier tous les moments
+de l'horaire; (b) balayer la plage des moments; (c) vérifier à chaque
 moment le nombre de salles requis. Par exemple, si ```H = [(0, 3), (1,
-4), (2, 5), (3, 6)]```, alors l'ensemble des moments sont ```{0, 1, 2,
-3, 4, 5, 6}'''. On itère ensuite sur chaque moment, et on vérifie la
+4), (2, 5), (3, 6)]```, alors l'ensemble des moments est _{0, 1, 2,
+3, 4, 5, 6}_. On itère ensuite sur chaque moment, et on vérifie la
 quantité de cours qui nécessitent une salle à ce moment précis. Sous
 forme de pseudocode, nous obtenons:
 
@@ -41,18 +42,18 @@ forme de pseudocode, nous obtenons:
 Cet algorithme fonctionne, mais son temps d'exécution est
 arbitrairement mauvais par rapport à _n_. En effet, considérons par
 ex. la famille d'entrées ```[(0, 1), (m-2, m-1)]```. Il y a exactement
-_m_ moments distincts et deux cours. Ainsi, en augmentant _m_ on
+_m_ moments distincts et deux cours. Ainsi, en augmentant _m_, on
 obtient un temps de plus en plus long, sans changer le nombre de cours.
 
-En fait, si _i_ est le nombre de bits qui permet de décrire chaque
+En fait, si _i_ dénote le nombre de bits qui permet de décrire un
 cours, alors l'algorithme fonctionne en temps _O(2ⁱ·n)_ car il risque
 d'énumérer tous les nombres de _i_ bits.
 
 ## Un algorithme quadratique qui fonctionne
 
-On peut adapter l'approche précédente afin qu'elle fonctionne. Il
+On peut adapter l'approche précédente afin qu'elle soit plus rapide. Il
 suffit de ne considérer que les ***moments pertinents***. Par exemple,
-si un cours débute au moment 0, se termine au moment 100, et aucun
+si un cours débute au moment 0, se termine au moment 100, et qu'aucun
 cours débute entre temps, alors il n'y a aucun intérêt à considérer
 les moments 1 à 99. Ainsi, on peut se limiter aux débuts de cours, ce
 qui mène à un temps d'exécution de _O(n·n) = O(n²)_:
@@ -83,7 +84,7 @@ qui mène à un temps d'exécution de _O(n·n) = O(n²)_:
 ## Un algorithme plus efficace qui ne fonctionne pas
 
 Nous pouvons espérer faire mieux en diminuant la complexité à _O(n log
-n)_. Dans un premier temps, nous pouvons trier les cours en ordre
+n)_. Dans un premier temps, nous pourrions trier les cours en ordre
 croissant selon le moment de début, puis selon le moment de fin en
 bris d'égalité. Il est ensuite tentant de procéder ainsi: on itère sur
 chaque cours, et on alloue une nouvelle salle si elle crée un conflit
@@ -108,14 +109,14 @@ avec le cours précédent:
     retourner num_salles
 ```
 
-Toutefois, cela ne fonctionne pas. Par exemple, considérer l'entrée
-```H = [(0, 3), (1, 4), (2, 5), (3, 6)]```` en «forme
+Toutefois, cela ne fonctionne pas. Par exemple, considérons l'entrée
+```H = [(0, 3), (1, 4), (2, 5), (3, 6)]``` en «forme
 d'escalier». L'algorithme retourne ```4```, alors que la solution est
 ```3```. Le problème est que l'algorithme raisonne trop «localement»;
 lorsqu'il atteint le quatrième cours, il ne réalise pas que le premier
 cours vient de se terminer. En fait, cet algorithme ne libère jamais
 de salle. Par exemple, sur entrée ```H = [(0, 2), (1, 3), (4, 6), (5,
-7)]```, la procédure retourne ```3``` plutôt que ```2``. En effet,
+7)]```, la procédure retourne ```3``` plutôt que ```2```. En effet,
 lorsque les deux premiers cours sont terminés, on devrait décrémenter
 le nombre de salles, alors que l'algorithme continue d'incrémenter.
 
@@ -125,7 +126,7 @@ Nous pouvons combiner les idées précédentes afin d'obtenir un
 algorithme à la fois efficace et correct. L'idée consiste à
 répertorier tous les moments pertinents, en gardant en tête leur type:
 «fin de cours» (type _0_) ou «début de cours» (type _1_). Nous
-considérons les fin de cours comme prioritaires, car un cours _c_
+considérons les fins de cours comme prioritaires, car lorsqu'un cours _c_
 termine au moment _j_ et qu'un autre cours _c'_ débute au moment _j_,
 nous pouvons libérer la salle de _c_ puis l'assigner à _c'_.
 
