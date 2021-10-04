@@ -54,7 +54,7 @@ d'énumérer tous les nombres de _i_ bits.
 On peut adapter l'approche précédente afin qu'elle soit plus rapide. Il
 suffit de ne considérer que les ***moments pertinents***. Par exemple,
 si un cours débute au moment 0, se termine au moment 100, et qu'aucun
-cours débute entre temps, alors il n'y a aucun intérêt à considérer
+cours ne débute entre temps, alors il n'y a aucun intérêt à considérer
 les moments 1 à 99. Ainsi, on peut se limiter aux débuts de cours, ce
 qui mène à un temps d'exécution de _O(n·n) = O(n²)_:
 
@@ -86,8 +86,8 @@ qui mène à un temps d'exécution de _O(n·n) = O(n²)_:
 Nous pouvons espérer faire mieux en diminuant la complexité à _O(n log
 n)_. Dans un premier temps, nous pourrions trier les cours en ordre
 croissant selon le moment de début, puis selon le moment de fin en
-bris d'égalité. Il est ensuite tentant de procéder ainsi: on itère sur
-chaque cours, et on alloue une nouvelle salle si elle crée un conflit
+bris d'égalité. Il serait ensuite tentant de procéder ainsi: on itère sur
+chaque cours, et on alloue une nouvelle salle si on crée un conflit
 avec le cours précédent:
 
 ```
@@ -125,7 +125,7 @@ le nombre de salles, alors que l'algorithme continue d'incrémenter.
 Nous pouvons combiner les idées précédentes afin d'obtenir un
 algorithme à la fois efficace et correct. L'idée consiste à
 répertorier tous les moments pertinents, en gardant en tête leur type:
-«fin de cours» (type _0_) ou «début de cours» (type _1_). Nous
+«fin de cours» (type 0) ou «début de cours» (type 1). Nous
 considérons les fins de cours comme prioritaires, car lorsqu'un cours _c_
 termine au moment _j_ et qu'un autre cours _c'_ débute au moment _j_,
 nous pouvons libérer la salle de _c_ puis l'assigner à _c'_.
@@ -174,6 +174,7 @@ obtenons cette procédure:
     
     num_salles ← 0
   
+    // Libérer et assigner les salles  O(n log n)
     pour cours ∈ H:
       tant que (|salles| > 0) ∧ (min(salles) ≤ debut(cours)):
         retirer élément mininimal de salles

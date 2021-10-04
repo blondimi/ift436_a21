@@ -93,7 +93,7 @@ def algo_monceau(H):
     # Ordonner les cours  O(n log n)
     H = list(sorted(H))
 
-    # Assigner et libérer itérativement les salles  O(n)
+    # Libérer et assigner les salles  O(n log n)
     salles = []
     
     num_salles = 0
