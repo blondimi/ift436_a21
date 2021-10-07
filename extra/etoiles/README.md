@@ -1,6 +1,6 @@
 # De l'algorithme de Kahn aux étoiles
 
-Deux étudiants ont proposé un algorithme intrigant afin de calculer le nombre maximal d'étoiles qu'on peut obtenir dans un jeu bien conçu.
+Deux étudiants ont proposé un algorithme intéressant afin de calculer le nombre maximal d'étoiles qu'on peut obtenir dans un jeu bien conçu.
 Leur approche se décrit succinctement comme suit:
 
 ```
@@ -17,7 +17,8 @@ Autrement dit, leur procédure est une modification de l'algorithme de Kahn où,
 plutôt que de retirer un sommet de degré entrant _0_ à la fois, on les retire
 tous d'un coup. Selon ces deux étudiants, le nombre de fois qu'on peut
 répéter cette opération correspond précisément au nombre maximal d'étoiles
-qu'on peut obtenir. Par exemple, l'algorithme fonctionne sur ce jeu bien conçu:
+qu'on peut obtenir. Par exemple, l'algorithme fonctionne sur ce jeu bien conçu
+dont la solution est _4_:
 
 ```
 Graphe initial:
@@ -26,7 +27,8 @@ Graphe initial:
   /      ^            ^
  /       |           /
 o        |          /
- \-----> o  ----> o
+ \       |         /
+   ----> o  ----> o
  
 Après itération 1:
 
@@ -34,6 +36,7 @@ Après itération 1:
          ^            ^
          |           /
          |          /
+         |         /
          o  ----> o
  
 Après itération 2:
@@ -42,7 +45,8 @@ Après itération 2:
                       ^
                      /
                     /
-                   o
+                   /
+                  o
 
 Après itération 3:
 
@@ -59,7 +63,7 @@ sous forme de pseudocode, puis démontrer qu'elle est correcte.
 
 ## Pseudocode
 
-Voici une implémentation de l'approche:
+Voici une description plus bas niveau de l'approche:
 
 ```
 // Calcul des degrés entrants
