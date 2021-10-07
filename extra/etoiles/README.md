@@ -122,8 +122,9 @@ prédecesseur _u_ de _v_. De plus, _dist(v) = max{dist(u) + 1 : u → v}_. Ainsi
 
 ⇐) Soit _v_ un sommet tel que _dist(v) = i_. Remarquons que _dist(u) < dist(v)_ pour tout prédecesseur _u_ de _v_.
 Ainsi, _dist(u) < i_ pour tout prédecesseur _u_ de _v_. Par hypothèse d'induction, cela signifie que tous
-les prédecesseurs de _v_ ont déjà été traités. Par conséquent, à la _i_-ème itération, nous avons _deg[v] = 0_.
-Le sommet _v_ est ainsi traité.
+les prédecesseurs de _v_ ont déjà été traités. De plus, _v_ possède forcément un prédecesseur _w_ tel que
+_dist(w) = dist(v) - 1_. Ainsi _dist(w) = i - 1_, ce qui signifie que _deg[v]_ atteint _0_ à l'itération
+_i - 1_. Par conséquent, le sommet _v_ est traité à l'itération _i_. □
 
 ## Correction
 
@@ -138,4 +139,4 @@ qui est impossible car _v_ peut atteindre le dernier niveau.
 
 Remarquons que la variable _étoiles_ compte le nombre d'itérations de la boucle «tant que». Ainsi, par la proposition,
 l'algorithme se termine avec _dist(dernier niveau) = étoiles - 1_, ce qui est équivalent à _étoiles = dist(dernier niveau) + 1_,
-comme recherché.
+comme recherché. □
