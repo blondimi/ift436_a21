@@ -93,8 +93,8 @@ retourner étoiles
 ## Caractérisation des sommets traités
 
 Pour chaque sommet _v_, définissons _dist(v)_ comme étant la longueur d'un chemin maximal du premier
-niveau vers _v_. Le nombre d'étoiles maximal qu'on peut obtenir en complétant le jeu consiste à
-emprunter un chemin de longueur maximal du premier niveau vers le dernier niveau. Ainsi, nous
+niveau vers _v_. Le nombre d'étoiles maximal qu'on peut obtenir en complétant le jeu découle de
+l'emprunt d'un chemin de longueur maximal du premier niveau vers le dernier niveau. Ainsi, nous
 devons nous assurer que l'algorithme termine avec _étoiles = dist(dernier niveau) + 1_. Notons que
 le «+ 1» provient du fait que la longueur d'un chemin correspond à son nombre d'arêtes, alors qu'on
 désire compter son nombre de sommets.
