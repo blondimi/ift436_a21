@@ -91,4 +91,4 @@ Par la proposition 2, nous pouvons convertir la solution optimale _S*_
 en une autre solution optimale _S**_ qui possède un cours de plus en
 commun avec _S_. Ainsi, en répétant cet argument un nombre fini de
 fois, on obtient une solution optimale _S**<sup>…</sup>*_ égale à
-_S_. Ainsi, _S_ est optimale. □
+_S_. Par conséquent, _S_ est optimale. □
