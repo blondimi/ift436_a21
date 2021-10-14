@@ -33,7 +33,7 @@ attendu, même dans un devoir!
 ## Observations 
 
 Soit _S*_ une solution optimale et soit _S_ une solution retournée par
-l'algorithme glouton. Soit _\[c₁, ..., c<sub>|S|</sub>\]_ les cours
+l'algorithme glouton. Soient _\[c₁, ..., c<sub>|S|</sub>\]_ les cours
 dans l'ordre où ils ont été ajoutés à _S_ par l'algorithme
 glouton. Remarquons d'abord que:
 
