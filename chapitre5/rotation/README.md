@@ -1,6 +1,6 @@
 # Rotation récursive d'image
 
-L'algorithme peut être testé sur [cette page](http://info.usherbrooke.ca/mblondin/cours/ift436_a20/rotation/).
+L'algorithme peut être testé sur [cette page](http://info.usherbrooke.ca/mblondin/cours/ift436_a21/rotation/).
 
 ## Exécution locale
 
