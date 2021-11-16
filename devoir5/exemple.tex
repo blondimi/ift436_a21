@@ -1,0 +1,198 @@
+\documentclass{article}
+
+%% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage[noline, onelanguage, french, noend]{algorithm2e}
+\usepackage{tikz}
+\usetikzlibrary{positioning, automata}
+
+%% Macros
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\O}{\mathcal{O}}
+\newcommand{\algdelim}{\texttt{:}}
+\newcommand{\algskip}{\vspace*{3pt}}
+\newcommand{\emptyseq}{[\,]}
+\newcommand{\lto}{\,{:}\,}
+
+%% Titre
+\title{IFT436: devoir 5}
+\author{Foo McBar}
+\date{30 novembre 2021}
+
+\begin{document}
+\maketitle
+
+%% Contenu
+\section*{Question 1}
+
+\begin{enumerate}[(a)]
+\item ...
+  
+\item ...
+
+  \begin{algorithm}[H]
+    \DontPrintSemicolon
+    \SetKwFunction{dames}{dames}
+    \SetKwFunction{damesp}{dames'}
+    \SetKwProg{myproc}{}{}{}
+    \KwIn{$n \in \N$}
+    \KwResult{solution au problème des $n$ dames (s'il en existe une)}
+    \algskip
+    
+    \myproc{\dames{$n$}\algdelim}{
+      \myproc{\damesp{$sol$}\algdelim}{
+        \If{$|sol| = n$}{
+          \Return{$sol$}
+        }
+        \Else{
+          \For(\tcp*[f]{essayer col.\ dispo.}){%
+            $j \in \{1, \ldots, n\} \setminus sol$}{
+            $sol' \leftarrow sol + [j]$
+            \tcp*[f]{$sol' = sol$ étendue avec $j$}
+            \algskip
+            
+            \If{$sol'$ respecte les contraintes de diagonales}{
+              $r \leftarrow \damesp{$sol'$}$\;
+              \algskip
+              
+              \If{$r \neq \textit{aucune}$}{
+                \Return{$r$}\;
+              }
+            }
+          }
+          
+          \algskip
+          \Return{\textit{aucune}}\;
+        }
+      }
+      
+      \algskip
+      \Return{\damesp{$\emptyseq$}}\;
+    }
+  \end{algorithm}  
+  
+\item ...
+
+  \begin{algorithm}[H]
+    \DontPrintSemicolon
+    \SetKwFunction{monnaiedyn}{monnaie-dyn}
+    \SetKwProg{myproc}{}{}{}
+    \KwIn{montant $m \in \N$, séquence $s$ de $n \in \N$ pièces}
+    \KwResult{nombre minimal de pièces afin de rendre $m$}
+    \algskip
+    
+    \myproc{\monnaiedyn{$m, s$}\algdelim}{    
+      \tcp{$T[i, j] =$ \# pièces pour rendre $j$ avec $s[1 : i]$}
+      \textbf{initialiser} tableau $T[0..n, 0..m]$ 
+      avec $\infty$\;
+      
+      \algskip
+      \tcp{Aucun pièce pour rendre $0$}    
+      $T[0, 0] \leftarrow 0$\;
+      
+      \algskip
+      \tcp{Calculer \# pièces progressivement}
+      \For{$i \in [1..n]$}{
+        \For{$j \in [0..m]$}{
+          $sans \leftarrow T[i - 1, j]$
+          \tcp*{sol.\ sans $s[i]$}
+          $avec \leftarrow \infty$\;
+          
+          \algskip
+          \lIf{$j \geq s[i]$}{%
+            $avec \leftarrow T[i, j - s[i]] + 1$\,\tcp*[f]{sol.\ avec $s[i]$}
+          }
+          
+          \algskip
+          $T[i, j] \leftarrow \min(sans, avec)$\;        
+        }
+      }
+      
+      \algskip
+      \Return{$T[n, m]$}\;
+    }
+  \end{algorithm}
+    
+\item ...
+\end{enumerate}
+
+\section*{Question 2}
+
+\begin{enumerate}[(a)]
+\item ...
+
+\item ...  
+\end{enumerate}
+
+\section*{Question 3}
+
+
+\begin{enumerate}[(a)]
+\item ...
+
+    \begin{center}
+      \begin{tikzpicture}[auto, very thick, node distance=3cm, font=\large,
+                          transform shape, scale=0.9]
+        \node[state]                               (a) {$a$};
+        \node[state, above right=1cm and 2cm of a] (b) {$b$};
+        \node[state, below right=1cm and 2cm of a] (c) {$c$};
+        \node[state,       right=3cm of b]         (d) {$d$};
+        \node[state,       right=3cm of c]         (e) {$e$};
+        \node[state, below right=1cm and 2cm of d] (f) {$f$};
+
+        \path[-]
+        (a) edge node {$1$} (b)
+        (a) edge node[swap] {$4$} (c)
+        (b) edge node {$2$} (c)
+        (b) edge node {$4$} (d)
+        (c) edge node[swap] {$3$} (e)
+        (c) edge node[swap] {$1$} (d)
+        (d) edge node {$2$} (f)
+        (d) edge node {$2$} (e)
+        (e) edge node[swap] {$2$} (f)
+        ;
+      \end{tikzpicture}
+    \end{center}  
+
+  \item \leavevmode
+
+    \begin{center}
+      \begin{tikzpicture}[auto, very thick, node distance=3cm, font=\large,
+                          transform shape, scale=0.9]
+        \node[state]                 (a) {$s$};
+        \node[state, right=2cm of a] (b) {};
+        \node[state, below=2cm of a] (c) {};
+        \node[state, right=2cm of c] (d) {};
+        \node[state, right=2cm of d] (e) {};
+        
+        \path[-, orange, line width=6pt]
+        (a) edge node {} (b)
+        (b) edge node {} (d)
+        (c) edge node {} (d)
+        (d) edge node {} (e)
+        ;
+        
+        \path[-]
+        (a) edge node       {$2$} (b)
+        (a) edge node[swap] {$7$} (c)
+        (b) edge node[swap] {$4$} (c)
+        (b) edge node       {$1$} (d)
+        (c) edge node[swap] {$2$} (d)
+        (d) edge node[swap] {$4$} (e)
+        ;
+        
+      \end{tikzpicture}
+    \end{center}
+  
+  \begin{enumerate}[(i)]
+  \item ...
+    
+  \item ...  
+  \end{enumerate}
+  
+\end{enumerate}
+
+\end{document}
