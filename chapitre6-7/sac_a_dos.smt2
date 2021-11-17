@@ -1,4 +1,5 @@
-;; À copier/coller sur https://rise4fun.com/z3 ou en ligne de commande
+;; À copier/coller sur https://compsys-tools.ens-lyon.fr/z3/ ou
+;;                                                        en ligne de commande
 ;;
 ;; Problème du sac à dos avec c = 900, v = [ 50,   5,  65, 10,  12,  20]
 ;;                                  et p = [700, 320, 845, 70, 420, 180]
