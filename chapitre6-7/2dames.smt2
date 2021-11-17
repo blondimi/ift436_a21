@@ -3,22 +3,22 @@
 ;;
 ;; Problème des n dames avec n = 2
 
-(declare-const x00 Bool)
-(declare-const x01 Bool)
-(declare-const x10 Bool)
 (declare-const x11 Bool)
+(declare-const x12 Bool)
+(declare-const x21 Bool)
+(declare-const x22 Bool)
 
-(assert (or x00 x01))
-(assert (or x10 x11))
+(assert (or x11 x12))
+(assert (or x21 x22))
 
-(assert (or (not x00) (not x01)))
-(assert (or (not x10) (not x11)))
+(assert (or (not x11) (not x12)))
+(assert (or (not x21) (not x22)))
 
-(assert (or (not x00) (not x10)))
-(assert (or (not x01) (not x11)))
+(assert (or (not x11) (not x21)))
+(assert (or (not x12) (not x22)))
 
-(assert (or (not x01) (not x10)))
-(assert (or (not x00) (not x11)))
+(assert (or (not x12) (not x21)))
+(assert (or (not x11) (not x22)))
 
 (check-sat)
 
