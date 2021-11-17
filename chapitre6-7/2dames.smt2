@@ -1,4 +1,5 @@
-;; À copier/coller sur https://rise4fun.com/z3 ou en ligne de commande
+;; À copier/coller sur https://compsys-tools.ens-lyon.fr/z3/ ou
+;;                                                        en ligne de commande
 ;;
 ;; Problème des n dames avec n = 2
 
