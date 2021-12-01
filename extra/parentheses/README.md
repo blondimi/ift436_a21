@@ -79,7 +79,7 @@ considérons cette table de multiplication ```T```:
 Considérons la séquence ```a```<sup>*n*</sup>, c'est-à-dire celle constituée du symbole ```a``` répété
 *n* fois. Remarquons que ```a ⊗ (a ⊗ a) = a``` et ```(a ⊗ a) ⊗ a = b```. Ainsi, chaque triplet consécutif
 peut engendrer ```a``` ou ```b```. Cela signifie qu'à travers des contractions sur ```a```<sup>*n*</sup>, on
-peut engendrer 2<sup>n/3</sup> séquences de taille n/3, ce qui est exponentiel.
+peut engendrer 2<sup>n/3</sup> séquences distinctes de taille n/3, ce qui est exponentiel.
 
 ## Approche par coupes
 
