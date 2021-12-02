@@ -1,5 +1,3 @@
-***_En construction_***
-
 # Pièce biaisée: analyse à l'aide d'un graphe de probabilités
 
 Rappelons qu'en classe, nous avons considéré le problème suivant: comment simuler une pièce non biaisée à l'aide d'une pièce biaisée?
@@ -58,13 +56,31 @@ De plus, la probabilité de produire un ```g```, c.-à-d. de choisir
 le cycle de gauche, est de _1/3 · 1/3 = 1/9_. Similairement, la probabilité de produire
 un ```d```, c.-à-d. de choisir le cycle de droite, est de _2/3 · 2/3 = 4/9_.
 
-### Probabilité totale
+### Probabilité d'obtenir "pile"
 
 Pour atteindre le sommet ```01``` à partir du sommet ```??```, on doit:
 
 * débuter en ```??``` et y revenir en compossant les deux cycles _k_ fois en utilisant _i_ fois le cycle de gauche (pour certains _k_, _i_);
 * suivre les deux arêtes vers le bas.
 
-La probabilité totale est donc de:
+La probabilité d'obtenir ```pile`` est donc de:
 
-...
+```
+     ∞     k
+    \¯¯   \¯¯     /k\       i       n-i
+    /__   /__     \i/ · (1/9) · (4/9)   · (1/3) · (2/3)
+   k = 0  i = 0
+
+             ∞  
+            \¯¯        k
+= (2/9) ·   /__   (5/9)      [par la formule du binôme de Newton]
+           k = 0
+
+               1  
+= (2/9) ·  ---------         [car série géométrique de raison 5/9]
+           (1 - 5/9)
+
+= (2/9) · (9/4)
+
+= 1/2.
+```
