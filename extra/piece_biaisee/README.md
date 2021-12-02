@@ -66,7 +66,7 @@ Pour atteindre le sommet ```01``` à partir du sommet ```??```, on doit:
 * débuter en ```??``` et y revenir en compossant les deux cycles _k_ fois en utilisant _i_ fois le cycle de gauche (pour certains _k_, _i_);
 * suivre les deux arêtes vers le bas.
 
-La probabilité d'obtenir ```pile`` est donc de:
+La probabilité d'obtenir ```pile``` est donc de:
 
 ```
      ∞     k
