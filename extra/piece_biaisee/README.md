@@ -93,7 +93,7 @@ La probabilité d'obtenir ```pile``` est donc de 1/2 comme attendu:
             ∞     n
            \¯¯   \¯¯     /n\        k       n-k
 = (2/9) ·  /__   /__     \k/ · (1/9) · (4/9)
-           k = 0 k = 0
+           n = 0 k = 0
 
              ∞  
             \¯¯        n
