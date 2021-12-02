@@ -1,6 +1,6 @@
 # Pièce biaisée: analyse à l'aide d'un graphe de probabilités
 
-Rappelons qu'en classe, nous avons considéré le problème suivant: comment simuler une pièce non biaisée à l'aide d'une pièce biaisée?
+Rappelons qu'en classe, nous avons cherché à implémenter une pièce non biaisée à l'aide d'une pièce biaisée.
 Ici, «biaisée» réfère au fait que la pièce tombe sur pile avec probabilité _p_, et sur face avec probabilité _1 - p_, où _p ≠ 1/2_.
 
 ## Algorithme
@@ -27,10 +27,13 @@ En classe, j'ai tenté en vain d'analyser l'algorithme, pour le cas particulier 
 ```
                 2/3           1/3          2/3          1/3
  "pile" (01) <------- (0?) <------- (??) ------> (1?) -------> (10) "face"
-                       |            ^  ^            |
-                       ------------/    \------------
+                       |            ^  ^           |
+                       ------------/    \-----------
                             1/3             2/3
 ```
+
+Ici, chaque sommet de la forme ```(ab)``` indique le bit _a_ assigné à la variable _x_, et le bit _b_ assigné à la variable
+_y_, où ```?``` signifie que rien n'a été assigné.
 
 ### Cycles
 
