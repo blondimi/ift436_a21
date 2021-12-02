@@ -112,5 +112,5 @@ La probabilité d'obtenir ```pile``` est donc de 1/2 comme attendu:
 
 ### Liens
 
-- [Séries géométriques](https://fr.wikipedia.org/wiki/S%C3%A9rie_g%C3%A9om%C3%A9trique)
 - [Formule du binôme de Newton](https://fr.wikipedia.org/wiki/Formule_du_binôme_de_Newton)
+- [Séries géométriques](https://fr.wikipedia.org/wiki/S%C3%A9rie_g%C3%A9om%C3%A9trique)
