@@ -1,6 +1,6 @@
 # Pièce biaisée: analyse à l'aide d'un graphe de probabilités
 
-Rappelons qu'en classe, nous avons cherché à implémenter algorithmiquement une pièce non biaisée à l'aide d'une pièce biaisée.
+Rappelons qu'en séance d'exercices, nous avons cherché à implémenter algorithmiquement une pièce non biaisée à l'aide d'une pièce biaisée.
 Ici, «biaisée» réfère au fait que la pièce tombe sur pile avec probabilité _p_, et sur face avec probabilité _1 - p_, où _p ≠ 1/2_.
 
 ## Algorithme
@@ -19,10 +19,12 @@ si x = 0: retourner "pile"
 sinon:    retourner "face"
 ```
 
+[Vous pouvez voir l'algorithme en action ici](https://www.youtube.com/watch?v=5DN7es3JqHs).
+
 ## Analyse à l'aide d'un graphe de probabilités
 
 En classe, j'ai tenté en vain d'analyser l'algorithme, pour le cas particulier où _p = 1/3_, à l'aide de ce graphe de probabilités
-(dont le nom savant est plutôt _[chaîne de Markov à temps discret](https://fr.wikipedia.org/wiki/Cha%C3%AEne_de_Markov)_):
+(mieux connu sous le nom savant de _[chaîne de Markov à temps discret](https://fr.wikipedia.org/wiki/Cha%C3%AEne_de_Markov)_):
 
 ```
                 2/3           1/3          2/3          1/3
