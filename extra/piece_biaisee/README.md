@@ -40,10 +40,10 @@ _y_, où ```?``` signifie que rien n'a été assigné.
 ### Cycles
 
 Voici une analyse qui fonctionne. Cherchons à identifier la probabilité de débuter dans le sommet ```??```
-et d'atteindre le sommet ```01``` qui correspond au verdict ```pile```. Il est possible d'effectuer _k_ itérations dans
-les cycles simples ```?? → 0? → ??``` et ```?? → 1? → ??```. Appelons ces deux cycles ```g``` et
+et d'atteindre le sommet ```01``` qui correspond au verdict ```pile```. Il est possible d'utiliser
+les cycles simples ```?? → 0? → ??``` et ```?? → 1? → ??``` un certain nombre de fois. Appelons ces deux cycles ```g``` et
 ```d```. Il y a plusieurs façons de combiner ces cycles, par ex. ```gddg``` indique qu'on tourne
-d'abord à gauche, puis deux fois à droite, puis une dernière fois gauche. Le nombre de façon
+d'abord à gauche, puis deux fois à droite, puis une dernière fois gauche. Le nombre de façons
 de composer _k_ cycles avec exactement _i_ occurrences de ```g``` correspond à _i parmi k_
 ([coefficient binomial](https://fr.wikipedia.org/wiki/Coefficient_binomial)). Par exemple,
 pour _k = 4_ et _i = 2_, six choix s'offrent à nous:
@@ -66,24 +66,24 @@ un ```d```, c.-à-d. de choisir le cycle de droite, est de _2/3 · 2/3 = 4/9_.
 Pour atteindre le sommet ```01``` à partir du sommet ```??```, on doit:
 
 * débuter en ```??``` et y revenir en combinant les deux cycles _k_ fois en utilisant _i_ fois le cycle de gauche (pour certains _k_, _i_);
-* suivre les deux arêtes vers le bas.
+* suivre les deux arêtes vers la gauche.
 
-La probabilité d'obtenir ```pile``` est donc de:
+La probabilité d'obtenir ```pile``` est donc de 1/2 comme attendu:
 
 ```
      ∞     k
-    \¯¯   \¯¯     /k\       i       n-i
+    \¯¯   \¯¯     /k\        i       k-i
     /__   /__     \i/ · (1/9) · (4/9)   · (1/3) · (2/3)
-   k = 0  i = 0
+   k = 0 i = 0
 
             ∞     k
-           \¯¯   \¯¯     /k\       i       n-i
-= (2/9) ·  /__   /__     \i/ · (1/9) · (4/9)   · (1/3) · (2/3)
-           k = 0  i = 0
+           \¯¯   \¯¯     /k\        i       k-i
+= (2/9) ·  /__   /__     \i/ · (1/9) · (4/9)
+           k = 0 i = 0
    
              ∞  
             \¯¯        k
-= (2/9) ·   /__   (5/9)      [par la formule du binôme de Newton]
+= (2/9) ·   /__   (5/9)      [par la formule du binôme de Newton avec x = 1/9 et y = 4/9]
            k = 0
 
                1  
@@ -94,3 +94,8 @@ La probabilité d'obtenir ```pile``` est donc de:
 
 = 1/2.
 ```
+
+### Liens
+
+- [Séries géométriques](https://fr.wikipedia.org/wiki/S%C3%A9rie_g%C3%A9om%C3%A9trique)
+- [Formule du binôme de Newton](https://fr.wikipedia.org/wiki/Formule_du_binôme_de_Newton)
