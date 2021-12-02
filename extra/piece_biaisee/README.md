@@ -6,7 +6,7 @@ Ici, «biaisée» réfère au fait que la pièce tombe sur pile avec probabilit�
 ## Algorithme
 
 L'approche présentée en classe consiste à choisir deux bits à l'aide de la pièce biaisée, et de recommencer
-tant que les deux bits sont égaux. Lorsqu'ils ne sont pas égaux, on retourne ```pile``` si le premier bit est nul
+tant que les deux bits sont égaux. Lorsqu'ils ne sont pas égaux, on retourne ```pile``` si le premier bit est zéro
 (l'inverse fonctionnerait aussi, c'est arbitraire):
 
 ```
