@@ -1,6 +1,6 @@
 # Pièce biaisée: analyse à l'aide d'un graphe de probabilités
 
-Rappelons qu'en classe, nous avons cherché à implémenter une pièce non biaisée à l'aide d'une pièce biaisée.
+Rappelons qu'en classe, nous avons cherché à implémenter algorithmiquement une pièce non biaisée à l'aide d'une pièce biaisée.
 Ici, «biaisée» réfère au fait que la pièce tombe sur pile avec probabilité _p_, et sur face avec probabilité _1 - p_, où _p ≠ 1/2_.
 
 ## Algorithme
@@ -32,7 +32,7 @@ En classe, j'ai tenté en vain d'analyser l'algorithme, pour le cas particulier 
                             1/3             2/3
 ```
 
-Ici, chaque sommet de la forme ```(ab)``` indique le bit _a_ assigné à la variable _x_, et le bit _b_ assigné à la variable
+Ici, chaque sommet de la forme ```(ab)``` indique que le bit _a_ a été assigné à la variable _x_, et que le bit _b_ a été assigné à la variable
 _y_, où ```?``` signifie que rien n'a été assigné.
 
 ### Cycles
@@ -63,7 +63,7 @@ un ```d```, c.-à-d. de choisir le cycle de droite, est de _2/3 · 2/3 = 4/9_.
 
 Pour atteindre le sommet ```01``` à partir du sommet ```??```, on doit:
 
-* débuter en ```??``` et y revenir en compossant les deux cycles _k_ fois en utilisant _i_ fois le cycle de gauche (pour certains _k_, _i_);
+* débuter en ```??``` et y revenir en combinant les deux cycles _k_ fois en utilisant _i_ fois le cycle de gauche (pour certains _k_, _i_);
 * suivre les deux arêtes vers le bas.
 
 La probabilité d'obtenir ```pile``` est donc de:
@@ -74,6 +74,11 @@ La probabilité d'obtenir ```pile``` est donc de:
     /__   /__     \i/ · (1/9) · (4/9)   · (1/3) · (2/3)
    k = 0  i = 0
 
+            ∞     k
+           \¯¯   \¯¯     /k\       i       n-i
+= (2/9) ·  /__   /__     \i/ · (1/9) · (4/9)   · (1/3) · (2/3)
+           k = 0  i = 0
+   
              ∞  
             \¯¯        k
 = (2/9) ·   /__   (5/9)      [par la formule du binôme de Newton]
