@@ -54,7 +54,7 @@ d'utiliser les cycles simples ```?? → 0? → ??``` et ```?? → 1? → ??```
 un certain nombre de fois. Appelons ces deux cycles ```g``` et
 ```d```. Il y a plusieurs façons de combiner ces cycles, par
 ex. ```gddg``` indique qu'on tourne d'abord à gauche, puis deux fois à
-droite, puis une dernière fois gauche. Le nombre de façons de concaténer
+droite, puis une dernière fois à gauche. Le nombre de façons de concaténer
 _n_ cycles avec exactement _k_ occurrences de ```g``` correspond à [_k
 parmi n_](https://fr.wikipedia.org/wiki/Coefficient_binomial). Par
 exemple, pour _n = 4_ et _k = 2_, six choix s'offrent à nous:
