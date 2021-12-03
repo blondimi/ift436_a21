@@ -54,11 +54,10 @@ d'utiliser les cycles simples ```?? → 0? → ??``` et ```?? → 1? → ??```
 un certain nombre de fois. Appelons ces deux cycles ```g``` et
 ```d```. Il y a plusieurs façons de combiner ces cycles, par
 ex. ```gddg``` indique qu'on tourne d'abord à gauche, puis deux fois à
-droite, puis une dernière fois gauche. Le nombre de façons de composer
-_k_ cycles avec exactement _i_ occurrences de ```g``` correspond à _i
-parmi k_ ([coefficient
-binomial](https://fr.wikipedia.org/wiki/Coefficient_binomial)). Par
-exemple, pour _k = 4_ et _i = 2_, six choix s'offrent à nous:
+droite, puis une dernière fois à gauche. Le nombre de façons de concaténer
+_n_ cycles avec exactement _k_ occurrences de ```g``` correspond à [_k
+parmi n_](https://fr.wikipedia.org/wiki/Coefficient_binomial). Par
+exemple, pour _n = 4_ et _k = 2_, six choix s'offrent à nous:
 
 ```
 ggdd
@@ -78,28 +77,28 @@ droite, est de _2/3 · 2/3 = 4/9_.
 
 Pour atteindre le sommet ```01``` à partir du sommet ```??```, on doit:
 
-* débuter en ```??``` et y revenir en combinant les deux cycles _k_
-  fois en utilisant _i_ fois le cycle de gauche (pour certains _k_,
-  _i_);
+* débuter en ```??``` et y revenir en combinant les deux cycles _n_
+  fois en utilisant _k_ fois le cycle de gauche (pour certains _n_,
+  _k_);
 * suivre les deux arêtes vers la gauche.
 
 La probabilité d'obtenir ```pile``` est donc de 1/2 comme attendu:
 
 ```
-     ∞     k
-    \¯¯   \¯¯     /k\        i       k-i
-    /__   /__     \i/ · (1/9) · (4/9)   · (1/3) · (2/3)
-   k = 0 i = 0
+     ∞     n
+    \¯¯   \¯¯     /n\        k       n-k
+    /__   /__     \k/ · (1/9) · (4/9)   · (1/3) · (2/3)
+   n = 0 k = 0
 
-            ∞     k
-           \¯¯   \¯¯     /k\        i       k-i
-= (2/9) ·  /__   /__     \i/ · (1/9) · (4/9)
-           k = 0 i = 0
+            ∞     n
+           \¯¯   \¯¯     /n\        k       n-k
+= (2/9) ·  /__   /__     \k/ · (1/9) · (4/9)
+           n = 0 k = 0
 
              ∞  
-            \¯¯        k
+            \¯¯        n
 = (2/9) ·   /__   (5/9)      [par la formule du binôme de Newton avec x = 1/9 et y = 4/9]
-           k = 0
+           n = 0
 
                1  
 = (2/9) ·  ---------         [car série géométrique de raison 5/9]
@@ -112,5 +111,5 @@ La probabilité d'obtenir ```pile``` est donc de 1/2 comme attendu:
 
 ### Liens
 
-- [Séries géométriques](https://fr.wikipedia.org/wiki/S%C3%A9rie_g%C3%A9om%C3%A9trique)
 - [Formule du binôme de Newton](https://fr.wikipedia.org/wiki/Formule_du_binôme_de_Newton)
+- [Séries géométriques](https://fr.wikipedia.org/wiki/S%C3%A9rie_g%C3%A9om%C3%A9trique)
