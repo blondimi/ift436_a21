@@ -2,7 +2,7 @@
 
 ### Références
 
-- [Vidéo intéressant sur P vs. NP](https://www.youtube.com/watch?v=YX40hbAHx3s)
+- [Vidéo qui vulgarise P vs. NP](https://www.youtube.com/watch?v=YX40hbAHx3s)
 - Michael Sipser: _Introduction to the Theory of Computation_. Second edition, Thomson Course Technology, 2006
 - [Sanjeev Arora, Boaz Barak: _Computational Complexity: A Modern Approach_. Cambridge University Press, 2009](https://theory.cs.princeton.edu/complexity/book.pdf)
 
