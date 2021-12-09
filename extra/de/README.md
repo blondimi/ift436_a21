@@ -1,12 +1,12 @@
 # Simuler un dé à 6 faces avec un lancer de pièce par itération
 
 Rappelons qu'en classe un étudiant a demandé si l'algorithme ci-dessous
-fait mieux que les deux algorithmes du #5(a) de l'examen final de 2020.
+fait mieux que les deux algorithmes du #5(a) de l'[examen final de 2020](https://info.usherbrooke.ca/mblondin/cours/ift436_a21/etude/final_a20.pdf).
 Voyons si c'est le cas.
 
 ```
 Entrée: —
-Sortie: nombre de [1..6]
+Sortie: nombre distribué uniformément parmi [1..6]
 
   choisir un bit y₂ à pile ou face
   choisir un bit y₀ à pile ou face
