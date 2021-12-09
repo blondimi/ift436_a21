@@ -1,6 +1,6 @@
 # Simuler un dé à 6 faces avec un lancer de pièce par itération
 
-Rappelons qu'en classe, un étudiant a demandé si l'algorithme ci-dessous
+Rappelons qu'en classe un étudiant a demandé si l'algorithme ci-dessous
 fait mieux que les deux algorithmes du #5(a) de l'examen final de 2020.
 Voyons si c'est le cas.
 
