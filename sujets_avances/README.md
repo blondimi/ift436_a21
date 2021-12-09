@@ -10,7 +10,7 @@
 
 ### Circuits
 
-#### Algorithme de Deutsch
+#### [Algorithme de Deutsch](https://fr.wikipedia.org/wiki/Algorithme_de_Deutsch-Jozsa)
 
 - [f(x) = 0](https://quantum-computing.ibm.com/composer/files/new?initial=N4IgdghgtgpiBcIBmAKAHgSgAQF4sEZ4sARGAVwBcBnAYwAsBaAKQHsAvKiEAGhABMYtAE4BLAA4URLMAhA8QARwhUosgPIAFAKIA5AIoBBAMoBZLACYAdAAYA3AB0wIsDQA2ZAVnuKYrkQCN8S2cabwcwRwUhGABzLAUAbXMAXXCaaLiaJNTHR2iqGAp4hOscsHzC4vwykT5i0vC0KrL-CCFRGCF6lraOrsTq8Lpuoebw1vaRTpHHCb6xx1qZsCaBnsnpxIbZ3qn%2BhMHHYa2y2GUyaO6sBgA%2BLCyGkABfIA)
 - [f(x) = 1](https://quantum-computing.ibm.com/composer/files/new?initial=N4IgdghgtgpiBcIBmAKAHgSgAQF4sAZ4sARGAVwBcBnAYwAsBaAKQHsAvKiEAGhABMYtAE4BLAA4URLMAhA8QARwhUosgPIAFAKIA5AIoBBAMoBZLACYAdPgDcAHTAiwNADZkBWO4pguRAIwBGSycaL3swBwUhGABzLAUAbXMAXXCaaLiaJNSHB2iqGAp4hPwcsHzC4oCykT5i0vC0KrK-CCFRGCF6lraOrsTq8Lpuoebw1vaRTpGHCb6xh1qZxzqBnsnpxIbZ3qn%2BhMGHYa2y2GUyaO6sBgA%2BLCyGkABfIA)
