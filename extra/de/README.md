@@ -27,7 +27,7 @@ Avec probabilité _2·(1/4·1/4) = 1/2_, on pige une chaîne de bits de la forme
 Dans ce cas, la probabilité de quitter la boucle est de _1/2_ (car il faut piger le bit inverse). Ainsi,
 dans ce cas, le nombre de tours de boucle espéré est _1 / (1/2) = 2_.
 
-Soit X le nombre de pièces lancées par l'algorithme, nous avons:
+Soit _X_ le nombre de pièces lancées par l'algorithme, nous avons:
 
 ```
 𝔼[X] = 2 + (1/2·1 + 1/2·2) = 2 + 3/2 = 7/2 = 3,5.
